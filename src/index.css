@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint-50: #f1fbf9;
+  --color-mint-100: #dff5f1;
+  --color-mint-200: #bfeae3;
+  --color-mint-300: #92d8cf;
+  --color-mint-400: #5fc1b8;
+  --color-mint-500: #3fa9a0;
+  --color-mint-600: #2f8c85;
+  --color-mint-700: #28706b;
+  --color-mint-800: #235956;
+  --color-mint-900: #1f4946;
+
+  --color-slate-bg: #2f4858;
+  --color-slate-deep: #243845;
+  --color-slate-ink: #1d2e38;
+
+  --color-gold-300: #f9c97a;
+  --color-gold-400: #f4b55c;
+  --color-gold-500: #ee9d3a;
+  --color-gold-600: #d6831e;
+  --color-gold-700: #ad6816;
+
+  --font-en: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-ar: "Cairo", "Tajawal", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-en);
+  background: #f4fbfa;
+  color: #243845;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] body { font-family: var(--font-ar); }
+
+/* Subtle dotted math grid background */
+.math-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(63,169,160,0.18) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.glow-gold {
+  box-shadow: 0 10px 30px -10px rgba(238,157,58,0.55);
+}
+
+.glow-mint {
+  box-shadow: 0 10px 35px -12px rgba(63,169,160,0.45);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #e6f3f0; }
+::-webkit-scrollbar-thumb { background: #92d8cf; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #5fc1b8; }
+
+::selection { background: #2f8c85; color: #fff; }
+
+/* Animations */
+@keyframes floaty {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-floaty { animation: floaty 4s ease-in-out infinite; }
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
+  70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.animate-pulse-ring { animation: pulseRing 2s infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp .6s ease-out both; }
+
+@keyframes blob {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(20px,-20px) scale(1.05); }
+  66% { transform: translate(-15px,15px) scale(0.97); }
+}
+.animate-blob { animation: blob 14s ease-in-out infinite; }
